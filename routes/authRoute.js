@@ -1,6 +1,7 @@
 import express from "express";
 import { body } from "express-validator";
 import {
+  deleteUserController,
   getAllUserProfile,
   loginController,
   registerController,
@@ -93,4 +94,6 @@ router.put("/updateProfile",validateUpdateUser,requireSignIn,updateUserProfile)
 router.post("/forgot-password", sendOtpMail);
 // reset-password
 router.post("/reset-password",validateResetPassword, resetPassword);
+// delete user
+router.delete("/delete-user/:id",requireSignIn,isAdmin,deleteUserController)
 export default router;

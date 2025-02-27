@@ -350,3 +350,22 @@ export const resetPassword = async (req, res) => {
     });
   }
 };
+
+// delete user
+export const deleteUserController=async(req,res)=>{
+  try {
+    const {id}=req.params;
+
+    const user=await userModel.findByIdAndDelete(id)
+    return res.status(200).send({
+      success:true,
+      message:"user deleted successfully",
+    })
+  } catch (error) {
+    return res.status(500).send({
+      success:false,
+      message:"error in delete user",
+      error:error.message
+    })
+  }
+}
