@@ -24,7 +24,7 @@ app.use("/api/v1/auth", authRoute);
 
 // rest api
 app.get("/", (req, res) => {
-  res.send("welcome to eCommerce app");
+  res.send("welcome to User-manage App");
 });
 
 // port
